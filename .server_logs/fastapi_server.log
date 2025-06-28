@@ -25,3 +25,15 @@ INFO:     100.64.4.167:58148 - "GET /tasks?completed=false&search=first HTTP/1.1
 INFO:     100.64.4.167:43922 - "GET /tasks/bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
 INFO:     100.64.4.167:54044 - "PUT /tasks/bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
 INFO:     100.64.4.167:54104 - "GET /tasks/bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60046 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60058 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60062 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60074 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60090 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60094 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60108 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60118 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60134 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60140 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60146 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:60158 - "GET /openapi.json HTTP/1.1" 200 OK

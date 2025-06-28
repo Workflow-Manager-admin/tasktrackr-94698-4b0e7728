@@ -7,11 +7,15 @@ This document explains how to integrate the React-based frontend with the FastAP
 
 ## 1. Overview & API Base URL
 
-All backend endpoints are available under the root URL of the backend instance. For development, this may be something like:
+**API Base URL:**  
+For all requests from the React frontend, use the following deployed backend URL:
+
 ```
-http://localhost:8000
+https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001
 ```
-or the deployed/staging address as per your configuration.
+
+All endpoint references and code samples in this document now utilize this base URL.
+For local development, you may substitute your local server's address as needed.
 
 ---
 
@@ -28,7 +32,7 @@ Authentication uses JWT (JSON Web Tokens) with **Bearer** tokens.
 
 ### Register
 
-- **Endpoint:** `POST /register`
+- **Endpoint:** `POST https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/register`
 - **Request payload:**
   ```json
   {
@@ -46,7 +50,7 @@ Authentication uses JWT (JSON Web Tokens) with **Bearer** tokens.
 
 ### Login
 
-- **Endpoint:** `POST /login`
+- **Endpoint:** `POST https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/login`
 - **Content-Type:** `application/x-www-form-urlencoded`
 - **Request fields:** (`username`, `password`)
   ```bash
@@ -70,7 +74,7 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 
 ### 3.1. Create Task
 
-- **Endpoint:** `POST /tasks`
+- **Endpoint:** `POST https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks`
 - **Headers:** `Authorization: Bearer <access_token>`
 - **Request body:**
   ```json
@@ -94,13 +98,13 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 
 ### 3.2. List / Filter Tasks
 
-- **Endpoint:** `GET /tasks`
+- **Endpoint:** `GET https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks`
 - **Headers:** `Authorization: Bearer <access_token>`
 - **Query parameters** (all optional):
   - `completed`: `true` or `false` – return only completed/incomplete tasks.
   - `search`: string – filter by title or description.
 - **Example Request:**  
-  `/tasks?completed=false&search=buy`
+  `https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks?completed=false&search=buy`
 - **Response:**
   ```json
   [
@@ -117,7 +121,7 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 
 ### 3.3. Get Task By ID
 
-- **Endpoint:** `GET /tasks/{task_id}`
+- **Endpoint:** `GET https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}`
 - **Headers:** `Authorization: Bearer <access_token>`
 - **Response:**
   ```json
@@ -132,7 +136,7 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 
 ### 3.4. Update a Task
 
-- **Endpoint:** `PUT /tasks/{task_id}`
+- **Endpoint:** `PUT https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}`
 - **Headers:** `Authorization: Bearer <access_token>`
 - **Request body:** (any combination of updatable fields)
   ```json
@@ -147,13 +151,13 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 
 ### 3.5. Delete a Task
 
-- **Endpoint:** `DELETE /tasks/{task_id}`
+- **Endpoint:** `DELETE https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}`
 - **Headers:** `Authorization: Bearer <access_token>`
 - **Response:** HTTP 204 No Content (no response body on success)
 
 ### 3.6. Mark Task as Complete
 
-- **Endpoint:** `POST /tasks/{task_id}/complete`
+- **Endpoint:** `POST https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}/complete`
 - **Headers:** `Authorization: Bearer <access_token>`
 - **Response:** Updated task object (see above).
 
@@ -161,7 +165,7 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 
 ## 4. Health Check Endpoint
 
-- **Endpoint:** `GET /`
+- **Endpoint:** `GET https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/`
 - **Purpose:** Returns `{"message": "Healthy"}` to test server status.
 
 ---
@@ -173,7 +177,7 @@ The following endpoints manage tasks for the **authenticated user**. Each reques
 ```js
 // Register or log in
 const login = async () => {
-  const res = await fetch('http://localhost:8000/login', {
+  const res = await fetch('https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/login', {
     method: 'POST',
     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     body: new URLSearchParams({
@@ -186,7 +190,7 @@ const login = async () => {
 };
 
 const fetchTasks = async (token) => {
-  const res = await fetch('http://localhost:8000/tasks', {
+  const res = await fetch('https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks', {
     headers: {Authorization: 'Bearer ' + token}
   });
   const tasks = await res.json();
@@ -220,15 +224,15 @@ Frontend code should handle these based on `.status` and error `.json()` body.
 
 | Method | Endpoint                    | Auth Required | Description                         |
 |--------|-----------------------------|--------------|-------------------------------------|
-| POST   | /register                   | No           | Register new user                   |
-| POST   | /login                      | No           | User login                          |
-| GET    | /                           | No           | Health check                        |
-| POST   | /tasks                      | Yes          | Create task                         |
-| GET    | /tasks                      | Yes          | List/filter tasks                   |
-| GET    | /tasks/{task_id}            | Yes          | Get task detail                     |
-| PUT    | /tasks/{task_id}            | Yes          | Update task                         |
-| DELETE | /tasks/{task_id}            | Yes          | Delete task                         |
-| POST   | /tasks/{task_id}/complete   | Yes          | Mark as complete                    |
+| POST   | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/register                 | No           | Register new user                   |
+| POST   | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/login                    | No           | User login                          |
+| GET    | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/                         | No           | Health check                        |
+| POST   | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks                    | Yes          | Create task                         |
+| GET    | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks                    | Yes          | List/filter tasks                   |
+| GET    | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}          | Yes          | Get task detail                     |
+| PUT    | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}          | Yes          | Update task                         |
+| DELETE | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}          | Yes          | Delete task                         |
+| POST   | https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id}/complete | Yes          | Mark as complete                    |
 
 ---
 
@@ -238,15 +242,15 @@ Frontend code should handle these based on `.status` and error `.json()` body.
 sequenceDiagram
     participant ReactApp
     participant FastAPI
-    ReactApp->>FastAPI: POST /register OR /login (credentials)
+    ReactApp->>FastAPI: POST https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/register OR /login (credentials)
     FastAPI-->>ReactApp: access_token
-    ReactApp->>FastAPI: GET /tasks (with Bearer token)
+    ReactApp->>FastAPI: GET https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks (with Bearer token)
     FastAPI-->>ReactApp: [task list]
-    ReactApp->>FastAPI: POST /tasks (with Bearer, new task)
+    ReactApp->>FastAPI: POST https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks (with Bearer, new task)
     FastAPI-->>ReactApp: created task
-    ReactApp->>FastAPI: PUT /tasks/{task_id} (with Bearer, updates)
+    ReactApp->>FastAPI: PUT https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id} (with Bearer, updates)
     FastAPI-->>ReactApp: updated task
-    ReactApp->>FastAPI: DELETE /tasks/{task_id} (with Bearer)
+    ReactApp->>FastAPI: DELETE https://vscode-internal-115-beta.beta01.cloud.kavia.ai:3001/tasks/{task_id} (with Bearer)
     FastAPI-->>ReactApp: 204 No Content
 ```
 
