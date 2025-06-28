@@ -37,3 +37,18 @@ INFO:     100.64.4.167:60134 - "GET /docs HTTP/1.1" 200 OK
 INFO:     100.64.4.167:60140 - "GET /docs HTTP/1.1" 200 OK
 INFO:     100.64.4.167:60146 - "GET /openapi.json HTTP/1.1" 200 OK
 INFO:     100.64.4.167:60158 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45170 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45172 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45176 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45192 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45200 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45216 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45228 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45234 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45924 - "GET / HTTP/1.1" 200 OK
+INFO:     100.64.4.167:45932 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     100.64.4.167:34132 - "OPTIONS /login HTTP/1.1" 200 OK
+INFO:     100.64.4.167:34142 - "POST /login HTTP/1.1" 422 Unprocessable Entity
+INFO:     100.64.4.167:59226 - "OPTIONS /login HTTP/1.1" 200 OK
+INFO:     100.64.4.167:59232 - "POST /login HTTP/1.1" 422 Unprocessable Entity
+INFO:     100.64.4.167:38338 - "POST /login HTTP/1.1" 200 OK
