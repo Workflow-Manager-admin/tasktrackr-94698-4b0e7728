@@ -1,0 +1,27 @@
+INFO:     Started server process [2188]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:3001 (Press CTRL+C to quit)
+INFO:     100.64.4.167:56116 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:56118 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:56136 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:56148 - "GET /docs HTTP/1.1" 200 OK
+INFO:     100.64.4.167:56150 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:56164 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     100.64.4.167:59296 - "GET / HTTP/1.1" 200 OK
+(trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/home/kavia/workspace/code-generation/tasktrackr-94698-4b0e7728/todo_backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+INFO:     100.64.4.167:59492 - "POST /register HTTP/1.1" 200 OK
+INFO:     100.64.4.167:46264 - "POST /login HTTP/1.1" 200 OK
+INFO:     100.64.4.167:50808 - "POST /login HTTP/1.1" 200 OK
+INFO:     100.64.4.167:40960 - "POST /tasks HTTP/1.1" 200 OK
+INFO:     100.64.4.167:44722 - "GET /tasks?completed=false HTTP/1.1" 200 OK
+INFO:     100.64.4.167:39084 - "GET /tasks?completed=false&search=bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
+INFO:     100.64.4.167:58148 - "GET /tasks?completed=false&search=first HTTP/1.1" 200 OK
+INFO:     100.64.4.167:43922 - "GET /tasks/bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
+INFO:     100.64.4.167:54044 - "PUT /tasks/bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
+INFO:     100.64.4.167:54104 - "GET /tasks/bd9e1bfb-8ee4-4630-8aed-cfd3a61c9e6f HTTP/1.1" 200 OK
